@@ -1,0 +1,94 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdk 30
+
+    defaultConfig {
+        applicationId "com.wn.compose"
+        minSdk 21
+        targetSdk 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+        useIR = true
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion compose_version
+        kotlinCompilerVersion '1.5.10'
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+    ndkVersion '22.1.7171670'
+}
+
+dependencies {
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
+    testImplementation 'junit:junit:4.+'
+
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.3.0'
+
+    implementation "androidx.compose.ui:ui:$compose_version"
+    implementation "androidx.compose.ui:ui-util:$compose_version"
+    implementation "androidx.compose.material:material:$compose_version"
+    implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
+    implementation 'androidx.activity:activity-compose:1.3.0-alpha06'
+    implementation "androidx.navigation:navigation-compose:2.4.0-alpha04"
+    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
+
+    // If using insets-ui
+    implementation 'com.google.accompanist:accompanist-insets:0.15.0'
+    implementation 'com.google.accompanist:accompanist-insets-ui:0.15.0'
+    implementation 'com.google.accompanist:accompanist-systemuicontroller:0.15.0'
+    implementation 'com.google.accompanist:accompanist-swiperefresh:0.15.0'
+    implementation 'com.google.accompanist:accompanist-pager:0.15.0'
+    implementation "com.google.accompanist:accompanist-coil:0.15.0"
+//    implementation "com.google.accompanist:accompanist-glide:<version>"
+
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.2.0'
+
+    // Paging Compose
+    implementation "androidx.paging:paging-compose:1.0.0-alpha11"
+
+    //koin 注入框架
+    implementation "org.koin:koin-core:2.1.5"
+    implementation "org.koin:koin-android:2.1.5"
+    implementation "org.koin:koin-androidx-viewmodel:2.1.5"
+    implementation "org.koin:koin-androidx-scope:2.1.5"
+    
+    // Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+}
