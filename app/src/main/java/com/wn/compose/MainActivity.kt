@@ -23,12 +23,12 @@ import com.wn.compose.ui.chat.MatchDetailPage
 import com.wn.compose.ui.home.HomePage
 import com.wn.compose.viewmodel.MatchViewModel
 
+@ExperimentalComposeUiApi
+@ExperimentalUnitApi
+@ExperimentalAnimationApi
 class MainActivity : ComponentActivity() {
     private val matchViewModel: MatchViewModel by viewModel()
 
-    @ExperimentalUnitApi
-    @ExperimentalComposeUiApi
-    @ExperimentalAnimationApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         WindowCompat.setDecorFitsSystemWindows(window, false)
